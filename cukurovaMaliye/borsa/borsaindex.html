@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BORSA</title>
+    <link rel="stylesheet" href="4style.css">
+    <link rel="icon" type="image/png" href="/images/pngimage.png">
+    <style>
+        h1 {
+            font-size: 24px; /* Yazı boyutunu büyüt */
+            font-weight: bold; /* Yazıyı kalın yap */
+            color: white; /* Rengini beyaz yap (isteğe bağlı) */
+            text-align: center; /* Ortaya hizala (isteğe bağlı) */
+        }
+    </style>
+    <title>En İyi Kripto Paralar Tablosu</title>
+    <style>
+        /* Widget'ı küçültmek ve ortalamak için stil */
+        .tradingview-widget-container {
+            width: 80%; /* Widget'ın genişliği */
+            height: 400px; /* Widget'ın yüksekliği */
+            margin: 0 auto; /* Yatayda ortalama */
+        }
+    </style>
+  <title>Borsa & Döviz Widget</title>
+  <style>
+      body {
+          font-family: Arial, sans-serif;
+          background-color: #f4f4f4;
+      }
+      .widget {
+          width: 350px;
+          background: #fff;
+          border: 1px solid #ddd;
+          padding: 15px;
+          border-radius: 8px;
+          box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.1);
+          position: absolute;
+          top: 320px;
+          right: 20px;
+      }
+      .widget h3 {
+          margin: 0 0 15px;
+          text-align: center;
+      }
+      .exchange-rate, .stock {
+          display: flex;
+          justify-content: space-between;
+          padding: 8px 0;
+          border-bottom: 1px solid #eee;
+          font-size: 16px;
+      }
+      .update-time {
+          text-align: center;
+          margin-top: 10px;
+          font-size: 14px;
+          color: #666;
+      }
+  </style>
+
+    
+</head>
+<body>
+    <style>
+        body {
+          
+
+
+          background-image: url(/images/borsa3.jpg);
+          background-size: cover;
+          background-position: center;
+          background-attachment: fixed; /* Kaydırırken arka plan sabit kalsın */
+        }
+      </style>
+      
+      <header class="header">
+        <a href="/index.html" class="logo">
+            <a href="/index.html">
+                <img src="/images/images.jpg" style="width:100px;height: 100px" alt="logo">
+            </a>
+
+            <nav class="navbar">
+                <a href="/index.html" >ANASAYFA</a>
+                <a href="/etkinlikler/etkinlikindex.html" >ETKİNLİKLER</a>
+                <a href="/borsa/borsaindex.html">BORSA</a>
+                <a href="/yonetim/yonetimindex.html">YÖNETİM</a>
+                <a href="/hakkımızda/hakkımızdaindex.html">HAKKIMIZDA</a>
+    
+            </nav>
+
+ 
+            <div class="buttons">
+                <button>
+                    <i class="fa-solid fa-user"></i>
+                </button>
+                <button>
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </header>
+        </div>
+        <div class="row">
+            <div class="col">
+               
+            </div>
+
+        </div>
+        
+        </div>
+    </div>
+    <h1 style="color: #008000;">BTC/USDT Canlı Fiyat</h1>
+
+    <p style="font-size: 16px; color: #437843;"  id="btcLivePrice">Yükleniyor...</p>
+
+    <script>
+        const ws = new WebSocket('wss://stream.binance.com:9443/ws/btcusdt@trade');
+
+        ws.onmessage = (event) => {
+            const data = JSON.parse(event.data);
+            document.getElementById('btcLivePrice').innerText = `Fiyat: ${data.p} USDT`;
+        };
+    </script>
+    
+
+    <title>Canlı Borsa Verisi</title>
+    <h1 style="color: #008000;">Canlı Borsa Verileri</h1>
+
+    <!-- TradingView Widget -->
+    <div class="tradingview-widget-container">
+      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js">
+      {
+        "symbols"; [
+          { "proName": "BINANCE:BTCUSDT", "title": "Bitcoin" },
+          { "proName": "BINANCE:ETHUSDT", "title": "Ethereum" }
+        ],
+        "theme"; "light",
+        "displayMode"; "adaptive"
+      }
+      </script>
+    </div>
+
+    <div class="widget">
+        <h3>Borsa & Döviz</h3>
+        <div id="exchange-rates">
+            <div class="exchange-rate"><span>USD/TRY:</span> <span id="usd-try">...</span></div>
+            <div class="exchange-rate"><span>EUR/TRY:</span> <span id="eur-try">...</span></div>
+            <div class="exchange-rate"><span>GBP/TRY:</span> <span id="gbp-try">...</span></div>
+        </div>
+        <div id="stocks">
+            <div class="stock"><span>BIST 100:</span> <span id="bist-100">...</span></div>
+            <div class="stock"><span>ALTIN/GRAM:</span> <span id="gold">...</span></div>
+        </div>
+        <div class="update-time" id="update-time">Güncelleniyor...</div>
+        <div class="update-time" id="last-update">Son Güncellenme Zamanı: Bilinmiyor</div>
+    </div>
+    <script>
+        async function fetchData() {
+            try {
+                let response = await fetch('https://api.exchangerate-api.com/v4/latest/USD');
+                let data = await response.json();
+                document.getElementById('usd-try').innerText = (data.rates.TRY).toFixed(2);
+                
+                response = await fetch('https://api.exchangerate-api.com/v4/latest/EUR');
+                data = await response.json();
+                document.getElementById('eur-try').innerText = (data.rates.TRY).toFixed(2);
+                
+                response = await fetch('https://api.exchangerate-api.com/v4/latest/GBP');
+                data = await response.json();
+                document.getElementById('gbp-try').innerText = (data.rates.TRY).toFixed(2);
+                
+                response = await fetch('https://finans.truncgil.com/today.json');
+                data = await response.json();
+                console.log("API Yanıtı:", data);
+                
+                document.getElementById('bist-100').innerText = data["BIST 100"]?.Selling ? data["BIST 100"].Selling + " ₺" : "Veri Yok";
+                document.getElementById('gold').innerText = data["gram-altin"]?.Selling ? data["gram-altin"].Selling + " ₺" : "Veri Yok";
+                
+                document.getElementById('update-time').innerText = "Son Güncelleme: " + new Date().toLocaleTimeString();
+                document.getElementById('last-update').innerText = "Son Güncellenme Zamanı: " + (data.Update_Date || "Bilinmiyor");
+            } catch (error) {
+                console.error('Veri alınamadı', error);
+                document.getElementById('update-time').innerText = "Veri alınamadı";
+            }
+        }
+        setInterval(fetchData, 5000);
+        fetchData();
+    </script>
+
+
+      
+</body>
+</html>

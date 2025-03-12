@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
+
+
+:root{
+    --main-color:  #ffffff;
+    --black-color:  #0e0e0e;
+    --border: 0.1rem solid rgba(255, 255, 255, 0.4);
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 9rem;
+    scroll-behavior: smooth;
+    }
+
+body{
+    background-color: var(--main-color);
+    height: 200vh ;
+
+}
+
+html::-webkit-scrollbar{
+    width: 0.8rem;
+    background-color: #3c33a5;
+}
+
+html::-webkit-scrollbar-track{
+    background-color: #2b8ad2;
+}
+
+
+html::-webkit-scrollbar-thumb{
+    border-radius: 3rem;
+    background-color: var(--main-color);
+}
+
+
+section{
+    padding: 3.5rem;
+}
+
+.btn{
+    margin-top: 1rem;
+    display: inline-block;
+    padding: 2rem 3.75rem;
+    border-radius: 30rem;
+    font-size: 1.7rem;
+    color: white;
+    background-color: var(--black-color);
+    cursor: pointer;
+}
+
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: 0.2s ease;
+
+}
+
+.header .navbar .active,
+.header .navbar a:hover {
+    color: #008000;
+    padding-bottom: 0.5rem;
+}
+
+.row{
+    display: flex;
+ }
+
+
+.logo img {
+    height: 7rem;
+}
+
+
+
+.header .logo img {
+    height: 10rem;
+    
+}
+.header{
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 7%;
+    margin: 2rem 7%;
+    border-radius: 30rem;
+    box-shadow: 0px 0px 17px -2px rgba(0, 0, 0, 0.75);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header .navbar a{
+    margin: 0 1rem;
+    font-size: 1.6rem;
+    color: var(--black-color);
+    border-bottom: 0.1rem solid transparent;
+}
+
+.header .buttons button{
+    cursor: pointer;
+    font-size: 2.5rem;
+    margin-left: 2rem;
+    background-color: transparent;
+
+}
+
+
+
+.coming-soon {
+    font-size: 4rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 4px;
+    color: #33ff00;
+    text-shadow: 0 0 20px #ffffff, 0 0 30px #33ff00, 0 0 40px #33ff00;
+    animation: glow 1.5s infinite alternate ease-in-out, wave 2s infinite ease-in-out;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Parlayan efekt */
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 10px #ffffff, 0 0 20px #313c2e, 0 0 30px #394735;
+        transform: scale(1);
+    }
+    100% {
+        text-shadow: 0 0 20px #ffffff, 0 0 40px #343e32, 0 0 50px #3a4538;
+        transform: scale(1.1);
+    }
+}
+
+/* Hafif dalgalanma efekti */
+@keyframes wave {
+    0% {
+        transform: translate(-50%, -50%) rotate(-2deg);
+    }
+    50% {
+        transform: translate(-50%, -50%) rotate(2deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(-2deg);
+    }
+}
+
+html, body {
+    height: 100vh;
+    overflow: 100;
+}
+
